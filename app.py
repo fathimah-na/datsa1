@@ -5,7 +5,7 @@ import pickle
 
 # --- Memuat model dan transformer ---
 try:
-    with open('catboost_regression_model (1).pkl', 'rb') as file:
+    with open('catboost_regression_model.pkl', 'rb') as file:
         model = pickle.load(file)
     with open('power_transformer.pkl', 'rb') as file:
         pt = pickle.load(file)
