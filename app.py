@@ -63,10 +63,10 @@ car_brands = [
 
 car_brands = sorted(car_brands)  # urutkan agar mudah dibaca
 
-car_name_input = st.sidebar.multiselect(
-    "Nama / Merek Mobil (ketik untuk mencari)",
+car_name_input = st.sidebar.selectbox(
+    "Nama / Merek Mobil",
     options=car_brands,
-    max_selections=1
+    index=car_brands.index("Toyota") if "Toyota" in car_brands else 0
 )
 
 # multiselect hasilnya list → ambil elemen pertama
