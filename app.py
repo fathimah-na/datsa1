@@ -53,7 +53,21 @@ fuel_type_input = st.sidebar.selectbox('Jenis Bahan Bakar', list(fuel_mapping.ke
 seller_type_input = st.sidebar.selectbox('Tipe Penjual', list(seller_type_mapping.keys()))
 transmission_type_input = st.sidebar.selectbox('Transmisi', list(transmission_mapping.keys()))
 owner_status_input = st.sidebar.selectbox('Jumlah Pemilik Sebelumnya', list(owner_mapping.keys()))
-car_name_input = st.sidebar.text_input('Nama / Merek Mobil', value='Toyota')
+# Daftar merek mobil (autocomplete)
+car_brands = [
+    "Maruti", "Hyundai", "Mahindra", "Tata", "Honda", "Ford",
+    "Chevrolet", "Toyota", "Renault", "Volkswagen", "Nissan",
+    "Skoda", "Fiat", "Datsun", "Mercedes-Benz", "Audi", "BMW",
+    "Mitsubishi", "Ambassador", "OpelCorsa", "Daewoo", "Force"
+]
+
+car_brands = sorted(car_brands)  # urutkan agar mudah dibaca
+
+car_name_input = st.sidebar.selectbox(
+    "Nama / Merek Mobil",
+    options=car_brands,
+    index=car_brands.index("Toyota") if "Toyota" in car_brands else 0
+)
 
 # Memuat daftar nama mobil yang valid dari X_train_names.csv
 try:
