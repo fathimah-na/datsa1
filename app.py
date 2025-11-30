@@ -63,11 +63,15 @@ car_brands = [
 
 car_brands = sorted(car_brands)  # urutkan agar mudah dibaca
 
-car_name_input = st.sidebar.selectbox(
-    "Nama / Merek Mobil",
+car_name_input = st.sidebar.multiselect(
+    "Nama / Merek Mobil (ketik untuk mencari)",
     options=car_brands,
-    index=car_brands.index("Toyota") if "Toyota" in car_brands else 0
+    max_selections=1
 )
+
+# multiselect hasilnya list → ambil elemen pertama
+car_name_input = car_name_input[0] if car_name_input else None
+
 
 # Memuat daftar nama mobil yang valid dari X_train_names.csv
 try:
