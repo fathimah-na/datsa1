@@ -69,10 +69,6 @@ car_name_input = st.sidebar.selectbox(
     index=car_brands.index("Toyota") if "Toyota" in car_brands else 0
 )
 
-# multiselect hasilnya list → ambil elemen pertama
-car_name_input = car_name_input[0] if car_name_input else None
-
-
 # Memuat daftar nama mobil yang valid dari X_train_names.csv
 try:
     valid_car_names_df = pd.read_csv('X_train_names.csv')
